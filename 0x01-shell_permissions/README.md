@@ -1,1 +1,21 @@
-SHELL PERMISION
+# 0x01-shell_permissions
+
+- [X] [0-iam_betty](0-iam_betty)
+- [X] [1-who_am_i](1-who_am_i)
+- [X] [10-mirror_permissions](10-mirror_permissions)
+- [X] [100-change_owner_and_group](100-change_owner_and_group)
+- [X] [101-symbolic_link_permissions](101-symbolic_link_permissions)
+- [X] [102-if_only](102-if_only)
+- [X] [103-Star_Wars](103-Star_Wars)
+- [X] [11-directories_permissions](11-directories_permissions)
+- [X] [12-directory_permissions](12-directory_permissions)
+- [X] [13-change_group](13-change_group)
+- [X] [2-groups](2-groups)
+- [X] [3-new_owner](3-new_owner)
+- [X] [4-empty](4-empty)
+- [X] [5-execute](5-execute)
+- [X] [6-multiple_permissions](6-multiple_permissions)
+- [X] [7-everybody](7-everybody)
+- [X] [8-James_Bond](8-James_Bond)
+- [X] [9-John_Doe](9-John_Doe)
+- [X] [README.md](README.md)
