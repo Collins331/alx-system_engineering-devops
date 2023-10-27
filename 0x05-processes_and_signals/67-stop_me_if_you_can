@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#  Bash script that stops 7-highlander process.
+#  shellcheck disable=SC2009
+(pgrep -f 7-highlander) | xargs -I {} /bin/kill -TERM {}
