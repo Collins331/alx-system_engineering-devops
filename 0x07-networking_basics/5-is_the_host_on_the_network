@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # pings a website 5 times and accepts one argument, the website to ping
 if [ $# -eq 1 ]; then
-    ping -c 5 $1
+    ping -c 5 "$1"
 else
     echo "Usage: 5-is_the_host_on_the_network {IP_ADDRESS}"
 fi
