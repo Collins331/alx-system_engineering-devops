@@ -5,4 +5,4 @@ if [ "$#" -lt 4 ]; then
 	exit 1
 fi
 
-scp -i "$4" "$1" "$3"@"$2":~/
+scp -o StrictHostKeyChecking=no -i "$4" "$1" "$3"@"$2":~/
