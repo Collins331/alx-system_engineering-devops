@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script will display the body of the response
+
+service apache2 start
