@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """import requests module"""
-from sys import argv
+
 import requests
+import sys
 
 
 if __name__ == "__main__":
@@ -12,10 +13,11 @@ if __name__ == "__main__":
     completed = 0
     total = 0
     title = []
-    r = requests.get(f"https://jsonplaceholder.typicode.com/users/{argv[1]}")
+    url = f"https://jsonplaceholder.typicode.com/users/{sys.argv[1]}"
+    r = requests.get()
     r = r.json()
     name = r.get("name")
-    url = f"https://jsonplaceholder.typicode.com/todos?userId={argv[1]}"
+    url = f"https://jsonplaceholder.typicode.com/todos?userId={sys.argv[1]}"
     t = requests.get(url)
     t = t.json()
     for i in t:
