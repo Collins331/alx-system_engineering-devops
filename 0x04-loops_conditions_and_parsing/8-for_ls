@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#display content of current directory
+
+list="$(ls)"
+for i in $list; do
+    name_part=$(echo "$i" | cut -d '-' -f 2-)
+    echo "$name_part"
+done

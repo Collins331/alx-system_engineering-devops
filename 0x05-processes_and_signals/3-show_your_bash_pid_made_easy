@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Bash script that displays lines containing the bash
+pids=$(pgrep -f bash)
+
+# Loop through the PIDs and display the PID and process name
+for pid in $pids; do
+    process_name=$(ps -o comm= -p "$pid")
+    echo "$pid $process_name"
+done
