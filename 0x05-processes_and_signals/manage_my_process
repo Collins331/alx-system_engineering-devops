@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# A Bah script that indefinitely writes "I am alive!"
-#+ to the file /tmp/my_process
-
-while true
-do
-        echo "I am alive!" >> /tmp/my_process
-        sleep 2
-done

@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# displays current processes in hierachy
-ps aux --forest

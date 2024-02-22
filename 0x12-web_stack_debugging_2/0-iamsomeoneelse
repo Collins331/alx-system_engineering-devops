@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# accepts one argument and checks it with whoami
-sudo -u "$1" whoami
