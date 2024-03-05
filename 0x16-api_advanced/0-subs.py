@@ -13,10 +13,10 @@ def number_of_subscribers(subreddit):
         the number of subscribers in a subredit or 0 if it doesn't exit
     """
     # Base URL for the subreddit information endpoint
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
 
     # Set a custom User-Agent header to avoid throttling
-    headers = {"User-Agent": "MyRedditApp/0.0.1"}
+    headers = {"User-Agent": "My user Agent 1.0"}
 
     try:
         # Send a GET request without following redirects
