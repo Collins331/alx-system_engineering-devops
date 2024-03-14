@@ -18,18 +18,14 @@
 
 # Default server configuration
 #
+#upstream backend_server {
+#	server 172.67.179.206;
+#	server 52.86.102.6:80;
+#}
+#
 server {
 	listen 80 default_server;
-rewrite ^/redirect_me https://www.youtube.com/ permanent;
 	listen [::]:80 default_server;
-	
-	location /airbnb-onepage/ {
-                proxy_pass http://localhost:5000;
-        }
-
-	location /hbnb_static/ {
-		alias /data/web_static/current/;
-	}
 
 	# SSL configuration
 	#
@@ -49,22 +45,45 @@ rewrite ^/redirect_me https://www.youtube.com/ permanent;
 
 	root /var/www/html;
 
-	# Add index.php to the list if you are using PHP
+ 	# Add index.php to the list if you are using PHP
 	index index.html index.htm index.nginx-debian.html;
 
-	server_name _;
-    error_page 404 /404.html;
-
-    location = /404.html {
-
-        internal;
-
-    }
+	server_name web-01.sammykingx.tech;
+	try_files $uri $uri/ =404;
 
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
+		include proxy_params;
+		proxy_pass http://localhost:5003/2-hbnb;
+	}
+
+	error_page 404 /404.html;
+
+	add_header X-Serverd-By 'web-01';
+
+	location = /404.html {
+		root /var/www/html;
+		internal;
+	}
+
+	location = /redirect_me {
+		return 301 $scheme://youtube.com/@sammykingx;
+	}
+
+	location = /airbnb-onepage {
+		include proxy_params;
+		proxy_pass http://localhost:5000/airbnb-onepage;
+	}
+
+	location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+		include proxy_params;
+		proxy_pass http://127.0.0.1:5001/number_odd_or_even/$1;
+	}
+
+	location /api/ {
+		include proxy_params;
+		proxy_pass http://localhost:5002/api/;
 	}
 
 	# pass PHP scripts to FastCGI server
@@ -73,7 +92,7 @@ rewrite ^/redirect_me https://www.youtube.com/ permanent;
 	#	include snippets/fastcgi-php.conf;
 	#
 	#	# With php-fpm (or other unix sockets):
-	#	fastcgi_pass unix:/run/php/php7.4-fpm.sock;
+	#	fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
 	#	# With php-cgi (or other tcp sockets):
 	#	fastcgi_pass 127.0.0.1:9000;
 	#}
